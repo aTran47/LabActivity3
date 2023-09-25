@@ -20,7 +20,11 @@ class MainActivity : AppCompatActivity() {
 
         
         findViewById<Button>(R.id.clickMeButton).setOnClickListener {
-            displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            if(findViewById<EditText>(R.id.nameEditText).length() == 0){
+                findViewById<EditText>(R.id.nameEditText).error = "Field is empty"
+            } else {
+                displayTextView.text = "Hello, ${findViewById<EditText>(R.id.nameEditText).text}"
+            }
         }
 
 
